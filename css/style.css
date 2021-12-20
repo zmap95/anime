@@ -1,0 +1,1105 @@
+:root {
+  --white-color: #ffffff;
+  --nav-bg-color: rgba(30, 14, 59, 0.9);
+  --main-bg-color: #1e032b;
+  --primary-color: #bc66ff;
+}
+
+html,
+body {
+  font-size: 62.5%;
+  font-family: "Komika Axis", sans-serif;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button,
+textarea,
+select,
+input {
+  font-size: 1.6rem;
+  font-family: "Komika Axis", sans-serif;
+  font-weight: normal;
+  outline: none;
+}
+
+body {
+  font-size: 1.6rem;
+  font-weight: normal;
+  height: 100vh;
+  font-family: "Komika Axis", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+section,
+footer {
+  overflow-x: hidden;
+  position: relative;
+  scroll-snap-align: start;
+}
+
+#loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background-color: #1e032b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#loading img {
+  width: 150px;
+}
+
+.decoration__image {
+  position: absolute;
+  left: 25%;
+  top: 10rem;
+  max-width: 40rem;
+  z-index: 0;
+  transform: translatex(-50%);
+}
+.decoration__image img {
+  width: 100%;
+}
+.decoration__image.right {
+  left: 75%;
+}
+.decoration__image.bottom {
+  bottom: 0;
+  top: unset;
+}
+
+.metaverse {
+  background-color: var(--main-bg-color);
+}
+
+.header {
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 1.8rem 1.8rem;
+  background-color: var(--nav-bg-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.header__content {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 130.6rem;
+}
+.header__logo img {
+  max-width: 20.9rem;
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.782rem;
+}
+.header__nav .nav__item {
+  text-decoration: none;
+  color: var(--white-color);
+  font-size: 1.6rem;
+  line-height: 4.5rem;
+  background-image: url(../asset/images/navbar/button_deactive.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  width: 10.6rem;
+  height: 5rem;
+  flex: 1;
+  display: block;
+  transition: background-image 0.5s linear;
+}
+.header__nav .nav__item.active {
+  background-image: url(../asset/images/navbar/button_active.svg);
+}
+.header__nav .nav__item.active ~ .nav__sub-button {
+  display: block;
+}
+.header__nav .nav__item--wrapper {
+  position: relative;
+}
+.header__nav .nav__item--wrapper .nav__sub-button {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  transform: translateY(5px);
+  width: 160px;
+  border-radius: 4px;
+  padding: 1.5rem 2rem;
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: #212529;
+  white-space: nowrap;
+  background-color: var(--white-color);
+  border: 0;
+  text-decoration: none;
+}
+.header__hamburger-btn {
+  background: transparent;
+  border: none;
+  display: none;
+  z-index: 6;
+}
+.header__menu-box {
+  background-color: #000000d9;
+  height: 100vh;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  z-index: 5;
+}
+
+.section__heading {
+  font-size: 4rem;
+  margin: 0 auto;
+  color: var(--white-color);
+  position: relative;
+  display: inline-block;
+}
+.section__heading .heading__decoration--left {
+  width: 83px;
+  background-color: #b559fd;
+  position: absolute;
+  border: 1.5px solid #b559fd;
+  top: calc(50% + 2px);
+  left: 0;
+  transform: translate(calc(-100% - 36px - 17px), -50%);
+}
+.section__heading .heading__decoration--left::before {
+  content: "";
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  border: 2px solid #b559fd;
+  box-sizing: border-box;
+  left: calc(100% + 2px);
+  top: -50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+.section__heading .heading__decoration--left::after {
+  content: "";
+  position: absolute;
+  width: 8.5px;
+  height: 8.5px;
+  background-color: #b559fd;
+  left: calc(100% + 2px);
+  transform: translate(4.25px, -50%) rotate(45deg);
+}
+.section__heading .heading__decoration--right {
+  width: 83px;
+  background-color: #b559fd;
+  position: absolute;
+  border: 1.5px solid #b559fd;
+  top: calc(50% + 2px);
+  right: 0;
+  transform: translate(calc(100% + 36px + 17px), -50%);
+}
+.section__heading .heading__decoration--right::before {
+  content: "";
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  border: 2px solid #b559fd;
+  box-sizing: border-box;
+  left: 0;
+  top: -50%;
+  transform: translate(calc(-100% - 2px), -50%) rotate(45deg);
+}
+.section__heading .heading__decoration--right::after {
+  content: "";
+  position: absolute;
+  width: 8.5px;
+  height: 8.5px;
+  background-color: #b559fd;
+  left: calc(-2px);
+  transform: translate(calc(-100% - 4.25px), -50%) rotate(45deg);
+}
+
+.banner {
+  padding-top: 8.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 6rem;
+}
+.banner__background {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.banner__image {
+  height: 100%;
+}
+.banner__video {
+  display: none;
+}
+.banner__content {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+.banner__content .banner__img--wrapper {
+  max-width: calc(100% / 3);
+  margin-right: auto;
+}
+.banner__content .banner__img--wrapper img {
+  width: 100%;
+  display: inline-block;
+}
+.banner__content .banner__heading {
+  color: var(--white-color);
+  font-size: 2.4rem;
+  text-align: center;
+  line-height: 4rem;
+  max-width: 100%;
+}
+.banner__content .banner__heading .banner__subtext {
+  color: var(--primary-color);
+}
+.banner__content .banner__heading .banner__button-list {
+  display: flex;
+  margin-top: 2rem;
+  gap: 1.6rem;
+}
+.banner__content .banner__heading .banner__button-list .button-item {
+  height: 5.7rem;
+  width: 17rem;
+  background-color: transparent;
+  border: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.banner__content .banner__heading .banner__button-list .button-item:nth-child(1) {
+  background-image: url(../asset/images/banner/ios-button.png);
+}
+.banner__content .banner__heading .banner__button-list .button-item:nth-child(2) {
+  background-image: url(../asset/images/banner/android-button.png);
+}
+.banner__content .banner__heading .banner__button-list .button-item:nth-child(3) {
+  background-image: url(../asset/images/banner/pc-button.png);
+}
+
+.story {
+  min-height: max(100vh, 920px);
+  background-image: url(../asset/images/story/story-bg.png);
+  background-size: cover;
+  background-position: center;
+  color: var(--white-color);
+  text-align: center;
+  z-index: 0;
+}
+.story__heading {
+  margin-top: 24.7rem;
+}
+.story__content {
+  margin-top: 10.8rem;
+  margin-bottom: 14.5rem;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.story__content .story__text {
+  max-width: 32.4rem;
+  line-height: 3.2rem;
+  font-size: 1.4rem;
+  z-index: 3;
+}
+.story__content .story__character {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.story__content .story__character:nth-of-type(1) {
+  left: 25%;
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+.story__content .story__character:nth-of-type(1) img {
+  max-height: 42rem;
+}
+.story__content .story__character:nth-of-type(2) {
+  left: 75%;
+}
+.story__content .story__character:nth-of-type(2) img {
+  max-height: 75rem;
+}
+.story__characters--mobile {
+  display: none;
+}
+
+.gameplay {
+  min-height: 100vh;
+  text-align: center;
+  padding-top: 10.3rem;
+  padding-bottom: 12.7rem;
+}
+.gameplay__slide {
+  margin-top: 7.3rem;
+  max-width: 80rem;
+  margin: 7.3rem auto 0;
+}
+.gameplay__description {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: var(--white-color);
+  margin-top: 3.3rem;
+  margin-bottom: 6rem;
+}
+.gameplay__description .gameplay__icon {
+  height: 2.9rem;
+  width: 2.9rem;
+}
+.gameplay__description p {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  line-height: 5rem;
+}
+.gameplay__description p i {
+  margin-right: 2.5rem;
+}
+.gameplay .owl-dots button.owl-dot {
+  width: 55px;
+  height: 7px;
+  border-radius: 10px;
+  border: none;
+  opacity: 0.5;
+  background-color: #ffffff;
+  vertical-align: baseline;
+}
+.gameplay .owl-dots button.owl-dot:not(:first-child) {
+  margin-left: 1rem;
+}
+.gameplay .owl-dots button.owl-dot.active {
+  opacity: 1;
+}
+
+.nft-items {
+  padding-top: 10.6rem;
+  padding-bottom: 3.9rem;
+  text-align: center;
+  min-height: 100vh;
+}
+.nft-items .decoration__image {
+  display: none;
+}
+.nft-items__slide {
+  position: relative;
+  max-width: 960px;
+  margin: 9.5rem auto 0;
+}
+.nft-items__slide .slide__next-btn,
+.nft-items__slide .slide__prev-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 49px;
+  background-color: transparent;
+  border: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nft-items__slide .slide__prev-btn {
+  left: 0;
+  background-image: url(../asset/images/previos-button.svg);
+}
+.nft-items__slide .slide__next-btn {
+  right: 0;
+  background-image: url(../asset/images/next-button.svg);
+}
+.nft-items__slide .slide__image-list {
+  padding: 0 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nft-items__wrapper {
+  text-align: center;
+}
+.nft-items__wrapper .nft-items__image {
+  margin-bottom: 1.4rem;
+}
+.nft-items .nft-items__name {
+  transform: translateY(-2px);
+}
+.nft-items .nft-items__name.nft-items__name--1 {
+  color: #2aaafd;
+}
+.nft-items .nft-items__name.nft-items__name--2 {
+  color: #53d804;
+}
+.nft-items .nft-items__name.nft-items__name--3 {
+  color: #d955ff;
+}
+.nft-items .nft-items__name.nft-items__name--4 {
+  color: #ff7a19;
+}
+.nft-items .nft-items__name.nft-items__name--5 {
+  color: #2aaafd;
+}
+.nft-items .nft-items__name.nft-items__name--6 {
+  color: #53d804;
+}
+.nft-items .nft-items__name.nft-items__name--7 {
+  color: #d955ff;
+}
+.nft-items .nft-items__name.nft-items__name--8 {
+  color: #ff7a19;
+}
+.nft-items__text {
+  color: var(--white-color);
+  font-size: 2.1rem;
+  line-height: 4rem;
+  max-width: 80rem;
+  display: inline-block;
+  margin-top: 4rem;
+}
+
+.evolve {
+  min-height: 100vh;
+  padding-top: 13.4rem;
+  padding-bottom: 18.8rem;
+  text-align: center;
+  background-image: url(../asset/images/evolve/evolve-background.png);
+  background-position: center;
+  background-size: 80% 100%;
+  background-repeat: no-repeat;
+}
+.evolve .decoration__image {
+  display: none;
+}
+.evolve__slide {
+  margin: 9rem auto 0;
+  max-width: 90rem;
+  position: relative;
+  width: 100%;
+}
+.evolve__slide .evolve__image-list {
+  margin-bottom: 0 auto 5.9rem;
+  padding: 0 5.5rem;
+}
+.evolve__slide .evolve__image-list .evolve__image--wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.evolve__slide .evolve__image-list .evolve__image--wrapper .evolve__image--card {
+  flex: 1;
+  max-width: 37%;
+}
+.evolve__slide .evolve__image-list .evolve__image--wrapper img {
+  display: inline-block;
+}
+.evolve__slide .evolve__image-list .button--arrow {
+  width: 7.7rem;
+  height: 7.7rem;
+}
+.evolve__slide .slide__next-btn,
+.evolve__slide .slide__prev-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 49px;
+  background-color: transparent;
+  border: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.evolve__slide .slide__prev-btn {
+  left: 0;
+  background-image: url(../asset/images/previos-button.svg);
+}
+.evolve__slide .slide__next-btn {
+  right: 0;
+  background-image: url(../asset/images/next-button.svg);
+}
+.evolve__slide .evolve__text {
+  color: var(--white-color);
+  line-height: 4rem;
+  font-size: 2.1rem;
+}
+
+.characters {
+  min-height: 80vh;
+  padding-top: 13.9rem;
+  margin-bottom: 8rem;
+  text-align: center;
+  background-image: url(../asset/images/characters/character-bg.png);
+  background-position: bottom;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: #1e032b;
+}
+.characters__character--list {
+  margin-top: 12.9rem;
+  margin-bottom: 5.7rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+.characters__character--list .character__wrapper:nth-of-type(1) {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 22.9rem;
+}
+.characters__character--list .character__wrapper:nth-of-type(1) .character--male:nth-of-type(1) {
+  transform: rotateY(180deg);
+}
+.characters__character--list .character__wrapper:nth-of-type(1) .character--male:nth-of-type(1) img {
+  max-height: 35rem;
+}
+.characters__character--list .character__wrapper:nth-of-type(1) .character--male:nth-of-type(2) {
+  transform: translateY(-10px);
+}
+.characters__character--list .character__wrapper:nth-of-type(1) .character--male:nth-of-type(2) img {
+  max-height: 35rem;
+}
+.characters__character--list .character__wrapper:nth-of-type(2) {
+  display: flex;
+  align-items: baseline;
+}
+.characters__text {
+  color: var(--white-color);
+  line-height: 4rem;
+  font-size: 2.1rem;
+}
+
+.roadmap {
+  min-height: 100vh;
+  padding-top: 11.7rem;
+  padding-bottom: 14rem;
+  text-align: center;
+  background-image: url(../asset/images/roadmap/roadmap-bg.png);
+  background-size: cover;
+  background-position: center;
+}
+.roadmap__map {
+  margin-top: 1.5rem;
+}
+.roadmap__map img {
+  max-width: 100%;
+}
+.roadmap__map .map__image--mobile {
+  display: none;
+}
+
+.team {
+  min-height: 100vh;
+  padding-top: 10.7rem;
+  text-align: center;
+  background-image: url(../asset/images/teams/team-bg.png);
+  background-size: 75%;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.team__member--list {
+  margin: 6.4rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 4rem 5.2rem;
+  max-width: 140rem;
+  padding: 0 10.3rem;
+}
+.team__member--list .member {
+  color: var(--white-color);
+  max-width: 160px;
+  margin: 0 auto;
+}
+.team__member--list .member__avatar {
+  margin-bottom: 2.849rem;
+}
+.team__member--list .member__name {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  line-height: 2.7rem;
+}
+.team__member--list .member__role {
+  font-size: 1.3rem;
+  line-height: 2.164rem;
+  margin-bottom: 0.9rem;
+  min-width: 43px;
+}
+.team__member--list .member__detail {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.adviser {
+  overflow-x: hidden;
+  scroll-snap-align: start;
+  position: relative;
+  min-height: 100vh;
+  padding-top: 11rem;
+  text-align: center;
+  background-image: url(../asset/images/teams/advisor-bg.png);
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.adviser__member--list {
+  margin: 6.4rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 4rem 5.2rem;
+  max-width: 68rem;
+  padding: 0 10.3rem;
+}
+.adviser__member--list .member {
+  color: var(--white-color);
+  max-width: 160px;
+  margin: 0 auto;
+}
+.adviser__member--list .member__avatar {
+  margin-bottom: 2.849rem;
+}
+.adviser__member--list .member__name {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  line-height: 2.7rem;
+}
+.adviser__member--list .member__role {
+  font-size: 1.3rem;
+  line-height: 2.164rem;
+  margin-bottom: 0.9rem;
+  min-width: 43px;
+}
+.adviser__member--list .member__detail {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.partner {
+  min-height: 100vh;
+  padding-top: 10.8rem;
+  padding-bottom: 20rem;
+  text-align: center;
+}
+.partner__logo--list {
+  text-align: center;
+  margin: 8.3rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  max-width: 85rem;
+  gap: 6.5rem;
+}
+.partner__logo--list .partner__logo--item {
+  width: 18rem;
+  object-position: center;
+  object-fit: cover;
+  margin: auto;
+}
+.partner__logo--list .partner__logo--item img {
+  width: 100%;
+}
+
+.footer {
+  position: relative;
+  padding-top: 8.4rem;
+  min-height: 82vh;
+  z-index: 0;
+}
+.footer:before {
+  content: "";
+  position: absolute;
+  background-image: url(../asset/images/footer/footer-bg.svg);
+  background-size: cover;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.footer .decoration__image {
+  z-index: -2;
+}
+.footer__img-girl {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% + 20%);
+  z-index: 0;
+  transform: translateX(-50%);
+  max-height: 50rem;
+}
+.footer__row {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+  max-width: 750px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 5rem;
+  z-index: 3;
+}
+.footer__row .footer__column .footer__main-heading {
+  font-size: 2.4rem;
+  line-height: 4rem;
+  margin-bottom: 3.5rem;
+}
+.footer__row .footer__column .footer__sub-heading {
+  font-size: 1.6rem;
+  line-height: 2.331rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  html,
+body {
+    font-size: 50%;
+  }
+
+  .decoration__image {
+    max-width: 20rem;
+    max-height: 20rem;
+  }
+
+  section:not(:first-of-type) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .header {
+    justify-content: space-between;
+  }
+  .header__logo {
+    margin-right: 0;
+  }
+  .header__nav {
+    display: none;
+  }
+  .header__hamburger-btn {
+    display: inline-block;
+  }
+  .header__menu-box {
+    padding-top: 8rem;
+    text-align: center;
+  }
+  .header__menu-box .nav__item {
+    height: 6rem;
+  }
+  .header__menu-box .nav__item a {
+    text-decoration: none;
+    color: var(--white-color);
+  }
+  .header__menu-box .nav__item:last-of-type {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s linear;
+  }
+  .header #nav__item--paper-mobile.active + .nav__item {
+    opacity: 1;
+    visibility: visible;
+  }
+  .inp__collapse:checked ~ .header__menu-box {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .adviser {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .section__heading {
+    font-size: 21px;
+  }
+  .section__heading .heading__decoration--left {
+    max-width: 50px;
+  }
+  .section__heading .heading__decoration--right {
+    max-width: 50px;
+  }
+
+  .banner__background {
+    object-fit: cover;
+    height: 67rem;
+  }
+  .banner__video {
+    height: 100%;
+  }
+  .banner__content {
+    margin-bottom: 0;
+  }
+  .banner__content .banner__img--wrapper {
+    display: none;
+  }
+
+  .story {
+    height: auto;
+  }
+  .story .decoration__image {
+    top: 60%;
+  }
+  .story__content {
+    width: 100%;
+    margin: 5rem 0;
+  }
+  .story__content .story__character {
+    display: none;
+  }
+  .story__content .story__text {
+    max-width: 45rem;
+  }
+  .story__characters--mobile {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .story__characters--mobile .story__character:nth-of-type(2) {
+    width: 75%;
+  }
+  .story__characters--mobile .story__character:nth-of-type(2) img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .story__characters--mobile .story__character:nth-of-type(1) {
+    width: 35%;
+    padding-left: 30px;
+  }
+  .story__characters--mobile .story__character:nth-of-type(1) img {
+    max-width: 100%;
+    max-height: 285px;
+    transform: rotateY(180deg);
+  }
+
+  .gameplay .decoration__image.right.bottom {
+    display: none;
+  }
+  .gameplay__slide {
+    margin-top: 4rem;
+  }
+  .gameplay__description p {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .gameplay__description p i {
+    margin-right: 1.5rem;
+  }
+  .gameplay__pic {
+    margin: 0 auto;
+  }
+  .gameplay__pic img {
+    width: 100%;
+  }
+
+  .nft-items .decoration__image {
+    display: block;
+    top: 10%;
+  }
+  .nft-items .decoration__image img {
+    width: 20rem;
+  }
+  .nft-items__slide {
+    max-width: 72rem;
+    margin-top: 4rem;
+  }
+  .nft-items__slide .slide__next-btn,
+.nft-items__slide .slide__prev-btn {
+    width: 20px;
+    height: 35px;
+  }
+  .nft-items__slide .slide__image-list {
+    width: 100%;
+  }
+  .nft-items__text {
+    font-size: 1.6rem;
+  }
+
+  .evolve .decoration__image.bottom {
+    display: none;
+  }
+  .evolve__slide {
+    margin-top: 4rem;
+  }
+  .evolve__slide .slide__next-btn,
+.evolve__slide .slide__prev-btn {
+    width: 20px;
+    height: 35px;
+  }
+  .evolve__slide .slide__next-btn img,
+.evolve__slide .slide__prev-btn img {
+    width: 100%;
+    height: 100%;
+  }
+  .evolve__slide .evolve__image-list {
+    padding: 0 3.5rem;
+  }
+  .evolve__slide .evolve__image-list .evolve__image--wrapper {
+    width: 100%;
+  }
+  .evolve__slide .evolve__image-list .evolve__image--wrapper .evolve__image--card {
+    max-width: 40%;
+  }
+  .evolve__slide .evolve__text {
+    font-size: 1.6rem;
+  }
+
+  .characters {
+    min-height: 70vh;
+    height: auto;
+    margin-bottom: 20rem;
+  }
+  .characters .decoration__image {
+    display: block;
+    top: 15%;
+  }
+  .characters .decoration__image img {
+    width: 20rem;
+  }
+  .characters__character--list {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4.2rem;
+  }
+  .characters__character--list .character__wrapper:nth-of-type(1),
+.characters__character--list .character__wrapper:nth-of-type(2) {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .characters__character--list .character__wrapper:nth-of-type(1) .character--male img,
+.characters__character--list .character__wrapper:nth-of-type(2) .character--male img {
+    max-height: 23rem !important;
+    width: 100%;
+  }
+  .characters__character--list .character__wrapper:nth-of-type(1) .character--female img,
+.characters__character--list .character__wrapper:nth-of-type(2) .character--female img {
+    width: 100%;
+    max-height: 23rem;
+  }
+  .characters__text {
+    color: var(--white-color);
+    line-height: 4rem;
+    font-size: 1.6rem;
+  }
+
+  .roadmap__map {
+    object-fit: cover;
+    object-position: center;
+  }
+  .roadmap__map .map__image--mobile {
+    display: block;
+    width: 100%;
+  }
+  .roadmap__map .map__image--pc {
+    display: none;
+  }
+
+  .team .decoration__image.right {
+    left: 50%;
+  }
+  .team__member--list {
+    gap: 2rem;
+    padding: 0;
+  }
+
+  .adviser__member--list {
+    gap: 2rem;
+    padding: 0;
+  }
+
+  .footer__img-girl {
+    height: calc(100% - 250px);
+  }
+  .footer:before {
+    content: "";
+    position: absolute;
+    background-image: url(../asset/images/footer/footer-bg.svg);
+    background-size: cover;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    bottom: 0;
+    left: 0;
+    height: calc(100% - 250px);
+    width: 100%;
+  }
+  .footer__row {
+    gap: 5rem;
+  }
+  .footer .decoration__image {
+    width: 93px;
+    top: 180px;
+  }
+
+  .header__logo img {
+    max-width: 120px;
+  }
+}
+@media only screen and (max-width: 374px) {
+  .adviser__member--list {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 1921px) {
+  .story__content .story__character:nth-of-type(1) img {
+    max-height: 42rem;
+  }
+  .story__content .story__character:nth-of-type(2) img {
+    max-height: 72rem;
+  }
+}
+@media only screen and (max-width: 1599px) {
+  .story__content .story__character:nth-of-type(1) img {
+    max-height: 35rem;
+  }
+  .story__content .story__character:nth-of-type(2) img {
+    max-height: 55rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
